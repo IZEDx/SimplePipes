@@ -14,7 +14,7 @@ import alexiil.mc.lib.attributes.item.impl.EmptyItemExtractable;
 
 public abstract class TilePipeWood extends TilePipeSided {
 
-    private boolean lastRecv = true;
+    int tickCount = 0;
 
     public TilePipeWood(BlockEntityType<?> type, BlockPipe pipeBlock, Function<TilePipe, PipeFlow> flowConstructor) {
         super(type, pipeBlock, flowConstructor);
@@ -36,13 +36,11 @@ public abstract class TilePipeWood extends TilePipeSided {
             return;
         }
 
-        if (world.isReceivingRedstonePower(getPos())) {
-            if (!lastRecv) {
-                lastRecv = true;
-                tryExtract(dir);
-            }
-        } else {
-            lastRecv = false;
+        tickCount++;
+        int power = 15 - world.getReceivedRedstonePower(getPos());
+        if (power < 15 && tickCount > power * 2) {
+            tickCount = 0;
+            tryExtract(dir);
         }
     }
 
