@@ -23,8 +23,8 @@ configurations {
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:19w13b"
-    mappings "net.fabricmc:yarn:19w13b.9"
+    minecraft "com.mojang:minecraft:19w14a"
+    mappings "net.fabricmc:yarn:19w14a.3"
     modCompile "net.fabricmc:fabric-loader:0.3.7.109"
 
     //Fabric api
