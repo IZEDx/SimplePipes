@@ -44,6 +44,7 @@ public class SimplePipesClient implements ClientModInitializer {
         registry.register(new Identifier(SimplePipes.MODID, "pipe_iron_item_clear"));
         registry.register(new Identifier(SimplePipes.MODID, "pipe_iron_item_filled"));
         registry.register(new Identifier(SimplePipes.MODID, "pipe_gold_item"));
+        registry.register(new Identifier(SimplePipes.MODID, "pipe_gold_directed_item"));
         registry.register(new Identifier(SimplePipes.MODID, "pipe_diamond_item"));
         registry.register(new Identifier(SimplePipes.MODID, "pipe_diamond_item_down"));
         registry.register(new Identifier(SimplePipes.MODID, "pipe_diamond_item_up"));

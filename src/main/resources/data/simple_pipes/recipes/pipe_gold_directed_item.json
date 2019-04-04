@@ -1,0 +1,12 @@
+{
+    "type": "crafting_shaped",
+    "result": {
+        "item": "simple_pipes:pipe_gold_directed_item",
+        "count": 1
+    },
+    "pattern": [ "I", "P" ],
+    "key": {
+        "I": { "item": "minecraft:iron_ingot" },
+        "P": { "item": "minecraft:pipe_gold_item" }
+    }
+}

@@ -36,6 +36,8 @@ public abstract class TilePipe extends TileBase implements Tickable {
     public volatile PipeBlockModelState blockModelState;
     byte connections;
 
+    public int connectionCount;
+
     public final PipeFlow flow;
 
     public TilePipe(BlockEntityType<?> type, BlockPipe pipeBlock, Function<TilePipe, PipeFlow> flowConstructor) {
@@ -78,10 +80,22 @@ public abstract class TilePipe extends TileBase implements Tickable {
         return tag;
     }
 
+    // TODO: Rewrite to better utilize canConnect?
     protected void onNeighbourChange() {
         for (Direction dir : Direction.values()) {
             BlockEntity oTile = world.getBlockEntity(getPos().offset(dir));
-            if (this instanceof TilePipeWood && oTile instanceof TilePipeWood) {
+            if (this instanceof TilePipeItemGoldDirected && oTile instanceof TilePipe) {
+                TilePipe oPipe = ((TilePipe)oTile);
+                if (connectionCount < 2 && (
+                    (oTile instanceof TilePipeItemGoldDirected && oPipe.connectionCount < 2 || oPipe.isConnected(dir.getOpposite()))
+                    || !(oTile instanceof TilePipeItemGoldDirected)
+                )) {
+                    connect(dir);
+                }
+            } else if (oTile instanceof TilePipeItemGoldDirected) {
+                TilePipe oPipe = ((TilePipe)oTile);
+                if (oPipe.connectionCount < 2 || oPipe.isConnected(dir.getOpposite())) connect(dir);
+            } else if (this instanceof TilePipeWood && oTile instanceof TilePipeWood) {
                 disconnect(dir);
             } else if (oTile instanceof TilePipe || canConnect(dir) || (this instanceof TilePipeSided
                 && ((TilePipeSided) this).currentDirection() == dir && ((TilePipeSided) this).canFaceDirection(dir))) {
@@ -160,6 +174,14 @@ public abstract class TilePipe extends TileBase implements Tickable {
         if (newState.equals(blockModelState)) {
             return;
         }
+
+        connectionCount = 0;
+        byte tempConnections = connections;
+        for (byte i = 0; i < 8; i++) {
+            if ((tempConnections & 1) == 1) connectionCount++;
+            tempConnections = (byte)(tempConnections >>> 1);
+        }
+
         blockModelState = newState;
         World w = getWorld();
         if (w instanceof ServerWorld) {

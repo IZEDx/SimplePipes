@@ -178,7 +178,7 @@ public class PipeFlowItem extends PipeFlow {
     }
 
     protected double getSpeedModifier() {
-        return pipe instanceof TilePipeItemGold ? 6 : 1;
+        return (pipe instanceof TilePipeItemGold || pipe instanceof TilePipeItemGoldDirected) ? 6 : 1;
     }
 
     private void onItemReachCenter(TravellingItem item) {

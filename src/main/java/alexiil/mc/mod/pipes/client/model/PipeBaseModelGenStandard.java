@@ -170,6 +170,8 @@ public class PipeBaseModelGenStandard {
             return getPipeSprite("stone_item");
         } else if (block == SimplePipeBlocks.GOLD_PIPE_ITEMS) {
             return getPipeSprite("gold_item");
+        } else if (block == SimplePipeBlocks.GOLD_DIRECTED_PIPE_ITEMS) {
+            return getPipeSprite("gold_directed_item");
         } else if (block == SimplePipeBlocks.DIAMOND_PIPE_ITEMS) {
             return getPipeSprite("diamond_item");
         } else if (block == SimplePipeBlocks.IRON_PIPE_ITEMS) {

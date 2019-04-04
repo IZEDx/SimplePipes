@@ -36,6 +36,7 @@ public class SimplePipeBlocks {
     public static final BlockPipeItemClay CLAY_PIPE_ITEMS;
     public static final BlockPipeItemIron IRON_PIPE_ITEMS;
     public static final BlockPipeItemGold GOLD_PIPE_ITEMS;
+    public static final BlockPipeItemGoldDirected GOLD_DIRECTED_PIPE_ITEMS;
     public static final BlockPipeItemDiamond DIAMOND_PIPE_ITEMS;
 
     public static final BlockPipeFluidWooden WOODEN_PIPE_FLUIDS;
@@ -51,6 +52,7 @@ public class SimplePipeBlocks {
     public static final BlockEntityType<TilePipeItemClay> CLAY_PIPE_ITEM_TILE;
     public static final BlockEntityType<TilePipeItemIron> IRON_PIPE_ITEM_TILE;
     public static final BlockEntityType<TilePipeItemGold> GOLD_PIPE_ITEM_TILE;
+    public static final BlockEntityType<TilePipeItemGoldDirected> GOLD_DIRECTED_PIPE_ITEM_TILE;
     public static final BlockEntityType<TilePipeItemDiamond> DIAMOND_PIPE_ITEM_TILE;
 
     public static final BlockEntityType<TilePipeFluidWood> WOODEN_PIPE_FLUID_TILE;
@@ -81,6 +83,7 @@ public class SimplePipeBlocks {
         CLAY_PIPE_ITEMS = new BlockPipeItemClay(pipeSettings);
         IRON_PIPE_ITEMS = new BlockPipeItemIron(pipeSettings);
         GOLD_PIPE_ITEMS = new BlockPipeItemGold(pipeSettings);
+        GOLD_DIRECTED_PIPE_ITEMS = new BlockPipeItemGoldDirected(pipeSettings);
         DIAMOND_PIPE_ITEMS = new BlockPipeItemDiamond(pipeSettings);
 
         WOODEN_PIPE_FLUIDS = new BlockPipeFluidWooden(pipeSettings);
@@ -110,6 +113,7 @@ public class SimplePipeBlocks {
         CLAY_PIPE_ITEM_TILE = create(TilePipeItemClay::new);
         IRON_PIPE_ITEM_TILE = create(TilePipeItemIron::new);
         GOLD_PIPE_ITEM_TILE = create(TilePipeItemGold::new);
+        GOLD_DIRECTED_PIPE_ITEM_TILE = create(TilePipeItemGoldDirected::new);
         DIAMOND_PIPE_ITEM_TILE = create(TilePipeItemDiamond::new);
 
         WOODEN_PIPE_FLUID_TILE = create(TilePipeFluidWood::new);
@@ -154,6 +158,7 @@ public class SimplePipeBlocks {
         registerBlock(CLAY_PIPE_ITEMS, "pipe_clay_item");
         registerBlock(IRON_PIPE_ITEMS, "pipe_iron_item");
         registerBlock(GOLD_PIPE_ITEMS, "pipe_gold_item");
+        registerBlock(GOLD_DIRECTED_PIPE_ITEMS, "pipe_gold_directed_item");
         registerBlock(DIAMOND_PIPE_ITEMS, "pipe_diamond_item");
 
         registerBlock(WOODEN_PIPE_FLUIDS, "pipe_wooden_fluid");
@@ -169,6 +174,7 @@ public class SimplePipeBlocks {
         registerTile(CLAY_PIPE_ITEM_TILE, "pipe_clay_item");
         registerTile(IRON_PIPE_ITEM_TILE, "pipe_iron_item");
         registerTile(GOLD_PIPE_ITEM_TILE, "pipe_gold_item");
+        registerTile(GOLD_DIRECTED_PIPE_ITEM_TILE, "pipe_gold_directed_item");
         registerTile(DIAMOND_PIPE_ITEM_TILE, "pipe_diamond_item");
 
         registerTile(WOODEN_PIPE_FLUID_TILE, "pipe_wooden_fluid");
