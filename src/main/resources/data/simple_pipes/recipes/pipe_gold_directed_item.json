@@ -7,6 +7,6 @@
     "pattern": [ "I", "P" ],
     "key": {
         "I": { "item": "minecraft:iron_ingot" },
-        "P": { "item": "minecraft:pipe_gold_item" }
+        "P": { "item": "simple_pipes:pipe_gold_item" }
     }
 }
